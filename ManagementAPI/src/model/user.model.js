@@ -10,10 +10,42 @@ User.init(
             defaultValue: DataTypes.UUIDV4,
             primaryKey: true,
         },
-        username: {
+        user_name: {
             type: DataTypes.STRING,
             allowNull: false, 
         },
+        last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        phone_number: {
+            type: DataTypes.BIGINT(12),
+            unique: true,
+            allowNull: false,
+        },
+        date_birth: {
+            type: DataTypes.DATEONLY,
+            allowNull: false,
+        },
+        dni: {
+            type: DataTypes.STRING,
+            unique: true,
+            allowNull: false,
+        },
+        /*password: {
+            type: DataTypes.STRING,
+            // Making password non-visible (in SELECT queries)
+            allowNull: false,
+            visible: false,
+        },
+        salt: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        active: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true,
+        }*/
         },
         {
             sequelize,
@@ -22,29 +54,3 @@ User.init(
     );
 
 module.exports = User;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*async function testConnection() {
-       try {
-             await sequelize.authenticate();
-            console.log("All Good!!")
-           } catch (err) {
-             console.error("All Bad!!", err)
-         }
-     }
-    
-     testConnection();*/
